@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://cw1thxedqeffr"]
+
+[ext_resource type="Script" uid="uid://q877i0jprnj2" path="res://scenes/levels/microgames/dragon_please/dragon_please.gd" id="1_sxnea"]
+[ext_resource type="Texture2D" uid="uid://cxaysunbv4tjk" path="res://assets/dragon_please/desk.png" id="2_4g2p2"]
+[ext_resource type="Texture2D" uid="uid://dovwngvxwjtq4" path="res://assets/dragon_please/wall.png" id="3_7yqgb"]
+[ext_resource type="Texture2D" uid="uid://ccsxvcubtsiuc" path="res://assets/dragon_please/approve_stamp.png" id="4_2vfmc"]
+[ext_resource type="Texture2D" uid="uid://kaw27kd0wj6x" path="res://assets/dragon_please/deny_stamp.png" id="5_mtdnv"]
+[ext_resource type="Script" uid="uid://buksgctv6oep3" path="res://scenes/levels/microgames/dragon_please/stamp.gd" id="6_0d6mk"]
+[ext_resource type="Texture2D" uid="uid://brnn2k5neqmhb" path="res://assets/dragon_please/guy.png" id="6_jyvuv"]
+[ext_resource type="Script" uid="uid://crmnw3ldr3xev" path="res://addons/drag_and_drop/scripts/draggable.gd" id="6_vvc0e"]
+[ext_resource type="Script" uid="uid://djdmnemxrx7bg" path="res://addons/drag_and_drop/resources/draggable_types/draggable_type.gd" id="7_0d6mk"]
+[ext_resource type="Script" uid="uid://nj1hdjl1vob2" path="res://addons/drag_and_drop/scripts/drop_zone.gd" id="9_xpttn"]
+[ext_resource type="Script" uid="uid://deuavk5443jri" path="res://addons/drag_and_drop/resources/drop_behaviors/drop_behavior_rearrange.gd" id="10_f5gdt"]
+[ext_resource type="Script" uid="uid://dgobip1ygmbm4" path="res://scenes/levels/microgames/dragon_please/paper.gd" id="12_5okuw"]
+[ext_resource type="Texture2D" uid="uid://5ukowhg8es03" path="res://assets/dragon_please/paper.png" id="13_iyngw"]
+
+[sub_resource type="Resource" id="Resource_xpttn"]
+script = ExtResource("7_0d6mk")
+
+[sub_resource type="Resource" id="Resource_47q23"]
+script = ExtResource("10_f5gdt")
+metadata/_custom_type_script = "uid://deuavk5443jri"
+
+[sub_resource type="Resource" id="Resource_f5gdt"]
+script = ExtResource("7_0d6mk")
+id = "paper"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wok2u"]
+size = Vector2(250, 125)
+
+[sub_resource type="Resource" id="Resource_t6v3t"]
+script = ExtResource("10_f5gdt")
+metadata/_custom_type_script = "uid://deuavk5443jri"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mm218"]
+size = Vector2(2304, 128)
+
+[node name="DragonPlease" type="Node" unique_id=2060906066]
+script = ExtResource("1_sxnea")
+metadata/_custom_type_script = "uid://k4apo5a87m3f"
+
+[node name="Desk" type="Sprite2D" parent="." unique_id=839723259]
+position = Vector2(960, 888)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_4g2p2")
+
+[node name="Wall" type="Sprite2D" parent="." unique_id=105300578]
+z_index = -1
+position = Vector2(960, 376)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_7yqgb")
+
+[node name="BG" type="Polygon2D" parent="." unique_id=1627473898]
+z_index = -5
+position = Vector2(712, 48)
+color = Color(0.7581918, 0.7581918, 0.7581917, 1)
+polygon = PackedVector2Array(-392, -48, -392, 656, 888, 656, 888, -48)
+uv = PackedVector2Array(-345.6624, -40.006676, -346.3291, 55.32666, -34.3291, 55.993332, -31.662415, -42.006676)
+
+[node name="Guy" type="Sprite2D" parent="." unique_id=1242555112]
+z_index = -1
+position = Vector2(816, 488)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_jyvuv")
+
+[node name="ApproveStamp" type="Area2D" parent="." unique_id=234703537 node_paths=PackedStringArray("sprite_node")]
+position = Vector2(1728, 664)
+script = ExtResource("6_0d6mk")
+sprite_node = NodePath("ApproveStampSprite")
+
+[node name="Draggable" type="Node" parent="ApproveStamp" unique_id=1314454213]
+script = ExtResource("6_vvc0e")
+type = SubResource("Resource_xpttn")
+metadata/_custom_type_script = "uid://crmnw3ldr3xev"
+
+[node name="ApproveStampSprite" type="Sprite2D" parent="ApproveStamp" unique_id=1385272798]
+position = Vector2(0, -8)
+texture = ExtResource("4_2vfmc")
+
+[node name="ApproveZone" type="Area2D" parent="." unique_id=944172435]
+position = Vector2(1728, 896)
+
+[node name="DropZone" type="Node2D" parent="ApproveZone" unique_id=1256627463 node_paths=PackedStringArray("attach_spot")]
+script = ExtResource("9_xpttn")
+attach_spot = NodePath("..")
+drop_behavior = SubResource("Resource_47q23")
+accepted_draggable_types = Array[ExtResource("7_0d6mk")]([SubResource("Resource_f5gdt")])
+metadata/_custom_type_script = "uid://nj1hdjl1vob2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ApproveZone" unique_id=695256017]
+shape = SubResource("RectangleShape2D_wok2u")
+
+[node name="DenyStamp" type="Area2D" parent="." unique_id=414647397 node_paths=PackedStringArray("sprite_node")]
+position = Vector2(192, 664)
+script = ExtResource("6_0d6mk")
+sprite_node = NodePath("DenyStampSprite")
+
+[node name="DenyStampSprite" type="Sprite2D" parent="DenyStamp" unique_id=1003052683]
+texture = ExtResource("5_mtdnv")
+
+[node name="Draggable" type="Node" parent="DenyStamp" unique_id=646171148]
+script = ExtResource("6_vvc0e")
+type = SubResource("Resource_xpttn")
+metadata/_custom_type_script = "uid://crmnw3ldr3xev"
+
+[node name="DenyZone" type="Area2D" parent="." unique_id=1625851966]
+position = Vector2(192, 896)
+
+[node name="DropZone" type="Node2D" parent="DenyZone" unique_id=1436574178 node_paths=PackedStringArray("attach_spot")]
+script = ExtResource("9_xpttn")
+attach_spot = NodePath("..")
+drop_behavior = SubResource("Resource_t6v3t")
+accepted_draggable_types = Array[ExtResource("7_0d6mk")]([SubResource("Resource_f5gdt")])
+metadata/_custom_type_script = "uid://nj1hdjl1vob2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DenyZone" unique_id=109873500]
+shape = SubResource("RectangleShape2D_wok2u")
+
+[node name="Paper" type="RigidBody2D" parent="." unique_id=1576038425 node_paths=PackedStringArray("sprite_node") groups=["pickable"]]
+position = Vector2(680.2078, 671.2373)
+script = ExtResource("12_5okuw")
+sprite_node = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="Paper" unique_id=1321592743]
+texture = ExtResource("13_iyngw")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=665394797]
+position = Vector2(960, 1024)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2113373210]
+position = Vector2(0, 64)
+shape = SubResource("RectangleShape2D_mm218")
