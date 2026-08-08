@@ -1,8 +1,10 @@
 extends Node
 
+@export var game_over: PackedScene
+@export var microgames: Dictionary[String, PackedScene]
+
 @onready var current_game: Node = %CurrentGame
 @onready var pause_menu: Node = %PauseMenu
-@export var microgames: Dictionary[String, PackedScene]
 var recent_microgames: Array[String] = []
 
 var games_won: int = 0
@@ -28,8 +30,18 @@ func load_microgame(game_name: String):
     current_game.add_child(game)
 
 
+func on_game_over():
+    unload_microgame()
+    var go_scene = game_over.instantiate()
+    # Need to make the game over scene have points and
+    # set those here.
+    add_sibling(go_scene)
+    queue_free()
+
+
 func unload_microgame():
     current_game.get_child(0).queue_free()
+
 
 func pause_microgame():
     pause_menu.show()
