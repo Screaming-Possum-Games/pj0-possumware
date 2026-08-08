@@ -6,9 +6,13 @@
 [ext_resource type="Script" uid="uid://kl4r7gq7fj68" path="res://scenes/levels/microgames/angry_birds/player.gd" id="3_qg5uq"]
 [ext_resource type="Script" uid="uid://crmnw3ldr3xev" path="res://addons/drag_and_drop/scripts/draggable.gd" id="4_282i4"]
 [ext_resource type="Script" uid="uid://djdmnemxrx7bg" path="res://addons/drag_and_drop/resources/draggable_types/draggable_type.gd" id="5_qg5uq"]
+[ext_resource type="Texture2D" uid="uid://c8140b2hhmlfx" path="res://assets/angry_birds/tile_0000.png" id="7_f2l2c"]
 
 [sub_resource type="Resource" id="Resource_f2l2c"]
 script = ExtResource("5_qg5uq")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qufia"]
+size = Vector2(40, 43)
 
 [node name="Game" type="Node2D" unique_id=840692161]
 script = ExtResource("1_ru8gf")
@@ -32,5 +36,16 @@ texture = ExtResource("3_abor8")
 script = ExtResource("4_282i4")
 type = SubResource("Resource_f2l2c")
 metadata/_custom_type_script = "uid://crmnw3ldr3xev"
+
+[node name="Block" type="StaticBody2D" parent="." unique_id=640932683]
+
+[node name="Sprite2D" type="Sprite2D" parent="Block" unique_id=829604312]
+position = Vector2(594.25, 714)
+scale = Vector2(3.0833294, 3.2222261)
+texture = ExtResource("7_f2l2c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block" unique_id=117993277]
+position = Vector2(594, 714)
+shape = SubResource("RectangleShape2D_qufia")
 
 [connection signal="drag_ended" from="Player/Draggable" to="Player" method="_on_draggable_drag_ended"]
