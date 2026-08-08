@@ -1,6 +1,6 @@
 extends Control
 
-@export var initial_scene: PackedScene = preload("res://scenes/levels/level_0.tscn")
+@export var initial_scene: PackedScene = preload("res://scenes/levels/game.tscn")
 var tween: Tween
 
 
