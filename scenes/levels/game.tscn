@@ -2,10 +2,14 @@
 
 [ext_resource type="Script" uid="uid://cu0thun4d1dc2" path="res://src/core/game_controller.gd" id="1_eqihu"]
 [ext_resource type="PackedScene" uid="uid://dt6b53byjnhu8" path="res://scenes/levels/game_over.tscn" id="2_61jgc"]
+[ext_resource type="PackedScene" uid="uid://be4buhv3gobq7" path="res://scenes/levels/microgames/test_game/test_game.tscn" id="3_61jgc"]
 
 [node name="Level0" type="Node2D" unique_id=1425157649]
 script = ExtResource("1_eqihu")
 game_over = ExtResource("2_61jgc")
+microgames = Dictionary[String, PackedScene]({
+"Test Game": ExtResource("3_61jgc")
+})
 
 [node name="PauseMenu" type="Node" parent="." unique_id=1882285251]
 unique_name_in_owner = true
