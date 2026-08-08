@@ -1,6 +1,12 @@
 [gd_scene format=3 uid="uid://5ukuk08jvi76"]
 
 [ext_resource type="Script" uid="uid://xtlbq1is8yyo" path="res://scenes/levels/microgames/angry_birds/game.gd" id="1_ru8gf"]
+[ext_resource type="Texture2D" uid="uid://bbkvv51yg5bd3" path="res://assets/angry_birds/colored_castle.png" id="2_64kbw"]
 
 [node name="Game" type="Node2D" unique_id=840692161]
 script = ExtResource("1_ru8gf")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1141492556]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_64kbw")
