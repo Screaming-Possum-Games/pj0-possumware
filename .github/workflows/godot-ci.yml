@@ -1,6 +1,9 @@
 name: "godot-ci export"
 on:
-  - pull_request
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 # NOTE: If your `project.godot` is at the repository root, set `PROJECT_PATH` below to ".".
 
@@ -98,14 +101,6 @@ jobs:
           path: build/web
       - name: Output artifact ID
         run: echo "WEB_ARTIFACT_ID=${{ steps.web-exp.outputs.artifact-id }}" >> $GITHUB_ENV
-
-  pr_comment:
-    name: Comment On PR
-    runs-on: ubuntu-24.04
-    needs:
-      - export-windows
-      - export-linux
-      - export-web
 
 #   export-mac:
 #     name: Mac Export
