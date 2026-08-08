@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://be4buhv3gobq7"]
 
-[ext_resource type="Script" uid="uid://c5nucee6wqf5p" path="res://scenes/microgames/test_game/test_game.gd" id="1_8usg4"]
+[ext_resource type="Script" uid="uid://c5nucee6wqf5p" path="res://scenes/levels/microgames/test_game/test_game.gd" id="1_8usg4"]
 
 [node name="TestGame" type="Node" unique_id=462891522]
 process_mode = 1
