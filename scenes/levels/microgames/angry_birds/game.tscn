@@ -11,6 +11,9 @@
 [sub_resource type="Resource" id="Resource_f2l2c"]
 script = ExtResource("5_qg5uq")
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6cf8o"]
+absorbent = true
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qufia"]
 size = Vector2(40, 43)
 
@@ -26,9 +29,6 @@ texture = ExtResource("2_64kbw")
 position = Vector2(250, 700)
 script = ExtResource("3_qg5uq")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player" unique_id=828575149]
-polygon = PackedVector2Array(-21, 14, -12, 26, 22, 19, 23, -16, 16, -25, 10, -18, 2, -16, -6, -27, -21, -28, -23, -19, -15, -18, -12, -13, -21, -16)
-
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1650826755]
 texture = ExtResource("3_abor8")
 
@@ -37,7 +37,11 @@ script = ExtResource("4_282i4")
 type = SubResource("Resource_f2l2c")
 metadata/_custom_type_script = "uid://crmnw3ldr3xev"
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player" unique_id=286945956]
+polygon = PackedVector2Array(-21, 14, -12, 26, 22, 19, 23, -16, 16, -25, 10, -18, 2, -16, -6, -27, -21, -28, -23, -19, -15, -18, -12, -13, -21, -16)
+
 [node name="Block" type="StaticBody2D" parent="." unique_id=640932683]
+physics_material_override = SubResource("PhysicsMaterial_6cf8o")
 
 [node name="Sprite2D" type="Sprite2D" parent="Block" unique_id=829604312]
 position = Vector2(594.25, 714)
@@ -47,5 +51,6 @@ texture = ExtResource("7_f2l2c")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Block" unique_id=117993277]
 position = Vector2(594, 714)
 shape = SubResource("RectangleShape2D_qufia")
+disabled = true
 
 [connection signal="drag_ended" from="Player/Draggable" to="Player" method="_on_draggable_drag_ended"]

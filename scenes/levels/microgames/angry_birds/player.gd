@@ -1,15 +1,41 @@
 extends Area2D
 
-@onready var draggable_node: Draggable = $Draggable
+@export var max_launch_speed: float = 1200.0
+@export var slingshot_sensitivity: float = 5.0 
+@export var friction: float = 400.0
 
-# Called when the node enters the scene tree for the first time.
+var velocity: Vector2 = Vector2.ZERO
+var drag_start_position: Vector2 = Vector2.ZERO
+var is_aiming: bool = false
+
+@onready var draggable_node: Node = $Draggable
+
 func _ready() -> void:
-    pass
+    if draggable_node.has_signal("drag_started"):
+        draggable_node.connect("drag_started", _on_draggable_drag_started)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-    pass
+    if is_aiming:
+        queue_redraw()
+        
+    if velocity != Vector2.ZERO:
+        position += velocity * delta
+        velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
+
+
+func _on_draggable_drag_started(area: Area2D) -> void:
+    drag_start_position = global_position
+    is_aiming = true
 
 
 func _on_draggable_drag_ended(area: Area2D, drop_spot: SnappingSpot) -> void:
-    pass
+    is_aiming = false
+    queue_redraw()
+    
+    if draggable_node:
+        draggable_node.process_mode = PROCESS_MODE_DISABLED
+    
+    var pull_vector: Vector2 = drag_start_position - global_position
+    
+    var launch_force: Vector2 = pull_vector * slingshot_sensitivity
+    velocity = launch_force.limit_length(max_launch_speed)
