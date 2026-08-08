@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c5nucee6wqf5p" path="res://scenes/microgames/test_game/test_game.gd" id="1_8usg4"]
 
 [node name="TestGame" type="Node" unique_id=462891522]
+process_mode = 1
 script = ExtResource("1_8usg4")
 metadata/_custom_type_script = "uid://k4apo5a87m3f"
 
