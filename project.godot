@@ -28,6 +28,7 @@ runtime/dialogue/default_message_scene=""
 
 [physics]
 
+2d/physics_engine="Rapier2D"
 3d/physics_engine="Jolt Physics"
 
 [rendering]

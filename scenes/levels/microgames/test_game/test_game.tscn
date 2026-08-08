@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://be4buhv3gobq7"]
+
+[ext_resource type="Script" uid="uid://c5nucee6wqf5p" path="res://scenes/levels/microgames/test_game/test_game.gd" id="1_8usg4"]
+
+[node name="TestGame" type="Node" unique_id=462891522]
+process_mode = 1
+script = ExtResource("1_8usg4")
+metadata/_custom_type_script = "uid://k4apo5a87m3f"
+
+[node name="Win!" type="Button" parent="." unique_id=1061050099]
+offset_left = 365.0
+offset_top = 129.0
+offset_right = 408.0
+offset_bottom = 160.0
+text = "Win!"
+
+[node name="Lose!" type="Button" parent="." unique_id=1588904391]
+offset_left = 436.0
+offset_top = 128.0
+offset_right = 484.0
+offset_bottom = 159.0
+text = "Lose!"
+
+[connection signal="pressed" from="Win!" to="." method="_on_win_pressed"]
+[connection signal="pressed" from="Lose!" to="." method="_on_lose_pressed"]

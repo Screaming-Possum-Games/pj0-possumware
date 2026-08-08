@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dt6b53byjnhu8"]
+
+[ext_resource type="Script" uid="uid://r8gl20prf04r" path="res://src/core/game_over_screen.gd" id="1_lpwf7"]
+
+[node name="GameOver" type="Node2D" unique_id=573997274]
+script = ExtResource("1_lpwf7")
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=272416539]
+unique_name_in_owner = true
+offset_left = 760.0
+offset_top = 515.0
+offset_right = 1116.0
+offset_bottom = 538.0
+text = "You completed N games before you bricked it!"
