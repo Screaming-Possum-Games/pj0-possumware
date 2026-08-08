@@ -2,6 +2,13 @@
 
 [ext_resource type="Script" uid="uid://xtlbq1is8yyo" path="res://scenes/levels/microgames/angry_birds/game.gd" id="1_ru8gf"]
 [ext_resource type="Texture2D" uid="uid://bbkvv51yg5bd3" path="res://assets/angry_birds/colored_castle.png" id="2_64kbw"]
+[ext_resource type="Texture2D" uid="uid://cbktdhos05ki0" path="res://assets/angry_birds/Golden Cat 1st 64px.png" id="3_abor8"]
+[ext_resource type="Script" uid="uid://kl4r7gq7fj68" path="res://scenes/levels/microgames/angry_birds/player.gd" id="3_qg5uq"]
+[ext_resource type="Script" uid="uid://crmnw3ldr3xev" path="res://addons/drag_and_drop/scripts/draggable.gd" id="4_282i4"]
+[ext_resource type="Script" uid="uid://djdmnemxrx7bg" path="res://addons/drag_and_drop/resources/draggable_types/draggable_type.gd" id="5_qg5uq"]
+
+[sub_resource type="Resource" id="Resource_f2l2c"]
+script = ExtResource("5_qg5uq")
 
 [node name="Game" type="Node2D" unique_id=840692161]
 script = ExtResource("1_ru8gf")
@@ -10,3 +17,20 @@ script = ExtResource("1_ru8gf")
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("2_64kbw")
+
+[node name="Player" type="Area2D" parent="." unique_id=630058229]
+position = Vector2(250, 700)
+script = ExtResource("3_qg5uq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player" unique_id=828575149]
+polygon = PackedVector2Array(-21, 14, -12, 26, 22, 19, 23, -16, 16, -25, 10, -18, 2, -16, -6, -27, -21, -28, -23, -19, -15, -18, -12, -13, -21, -16)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1650826755]
+texture = ExtResource("3_abor8")
+
+[node name="Draggable" type="Node" parent="Player" unique_id=1438079529]
+script = ExtResource("4_282i4")
+type = SubResource("Resource_f2l2c")
+metadata/_custom_type_script = "uid://crmnw3ldr3xev"
+
+[connection signal="drag_ended" from="Player/Draggable" to="Player" method="_on_draggable_drag_ended"]
