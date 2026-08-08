@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://5ukuk08jvi76"]
+
+[ext_resource type="Script" uid="uid://xtlbq1is8yyo" path="res://scenes/levels/microgames/angry_birds/game.gd" id="1_ru8gf"]
+
+[node name="Game" type="Node2D" unique_id=840692161]
+script = ExtResource("1_ru8gf")
