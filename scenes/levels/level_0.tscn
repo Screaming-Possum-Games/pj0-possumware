@@ -1,3 +1,12 @@
 [gd_scene format=3 uid="uid://dmkecxxam3bji"]
 
+[ext_resource type="Script" uid="uid://cu0thun4d1dc2" path="res://src/core/game_controller.gd" id="1_sxr8l"]
+
 [node name="Level0" type="Node2D" unique_id=1425157649]
+script = ExtResource("1_sxr8l")
+
+[node name="PauseMenu" type="Node" parent="." unique_id=1882285251]
+unique_name_in_owner = true
+
+[node name="CurrentGame" type="Node" parent="." unique_id=857654169]
+unique_name_in_owner = true
