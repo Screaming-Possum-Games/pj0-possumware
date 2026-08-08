@@ -5,6 +5,9 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: write
+
 # NOTE: If your `project.godot` is at the repository root, set `PROJECT_PATH` below to ".".
 
 env:
@@ -101,6 +104,15 @@ jobs:
           path: build/web
       - name: Output artifact ID
         run: echo "WEB_ARTIFACT_ID=${{ steps.web-exp.outputs.artifact-id }}" >> $GITHUB_ENV
+      - name: Install rsync 📚
+        run: |
+          apt-get update && apt-get install -y rsync
+      - name: Deploy to GitHub Pages 🚀
+        uses: JamesIves/github-pages-deploy-action@releases/v4
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: build/web # The folder the action should deploy.
+
 
 #   export-mac:
 #     name: Mac Export
