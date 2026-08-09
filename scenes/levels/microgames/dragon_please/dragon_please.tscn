@@ -9,10 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://brnn2k5neqmhb" path="res://assets/dragon_please/guy.png" id="6_jyvuv"]
 [ext_resource type="Script" uid="uid://crmnw3ldr3xev" path="res://addons/drag_and_drop/scripts/draggable.gd" id="6_vvc0e"]
 [ext_resource type="Script" uid="uid://djdmnemxrx7bg" path="res://addons/drag_and_drop/resources/draggable_types/draggable_type.gd" id="7_0d6mk"]
+[ext_resource type="Script" uid="uid://de2dx3bbjkfil" path="res://scenes/levels/microgames/dragon_please/approve_zone.gd" id="9_47q23"]
 [ext_resource type="Script" uid="uid://nj1hdjl1vob2" path="res://addons/drag_and_drop/scripts/drop_zone.gd" id="9_xpttn"]
 [ext_resource type="Script" uid="uid://deuavk5443jri" path="res://addons/drag_and_drop/resources/drop_behaviors/drop_behavior_rearrange.gd" id="10_f5gdt"]
 [ext_resource type="Script" uid="uid://dgobip1ygmbm4" path="res://scenes/levels/microgames/dragon_please/paper.gd" id="12_5okuw"]
 [ext_resource type="Texture2D" uid="uid://5ukowhg8es03" path="res://assets/dragon_please/green_paper.png" id="13_iyngw"]
+[ext_resource type="Script" uid="uid://caio8ypvkvifu" path="res://scenes/levels/microgames/dragon_please/deny_zone.gd" id="13_t6v3t"]
 [ext_resource type="Texture2D" uid="uid://b548dm5chi7nm" path="res://assets/dragon_please/blue_paper.png" id="14_f5gdt"]
 [ext_resource type="Texture2D" uid="uid://x8fftvxbwlq7" path="res://assets/dragon_please/red_paper.png" id="15_8vr2k"]
 
@@ -72,6 +74,20 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_jyvuv")
 metadata/_edit_lock_ = true
 
+[node name="RulesText" type="RichTextLabel" parent="." unique_id=210794102]
+unique_name_in_owner = true
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 360.0
+offset_bottom = 672.0
+bbcode_enabled = true
+text = "[font size=32]RULES:
+[ul]
+Red
+Blue
+Yellow
+[/ul][/font]"
+
 [node name="ApproveStamp" type="Area2D" parent="." unique_id=234703537 node_paths=PackedStringArray("sprite_node")]
 position = Vector2(1728, 664)
 script = ExtResource("6_0d6mk")
@@ -88,7 +104,9 @@ position = Vector2(0, -8)
 texture = ExtResource("4_2vfmc")
 
 [node name="ApproveZone" type="Area2D" parent="." unique_id=944172435]
+unique_name_in_owner = true
 position = Vector2(1728, 896)
+script = ExtResource("9_47q23")
 metadata/_edit_group_ = true
 
 [node name="DropZone" type="Node2D" parent="ApproveZone" unique_id=1256627463 node_paths=PackedStringArray("attach_spot")]
@@ -116,7 +134,9 @@ type = SubResource("Resource_xpttn")
 metadata/_custom_type_script = "uid://crmnw3ldr3xev"
 
 [node name="DenyZone" type="Area2D" parent="." unique_id=1625851966]
+unique_name_in_owner = true
 position = Vector2(192, 896)
+script = ExtResource("13_t6v3t")
 metadata/_edit_group_ = true
 
 [node name="DropZone" type="Node2D" parent="DenyZone" unique_id=1436574178 node_paths=PackedStringArray("attach_spot")]
@@ -129,7 +149,7 @@ metadata/_custom_type_script = "uid://nj1hdjl1vob2"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DenyZone" unique_id=109873500]
 shape = SubResource("RectangleShape2D_wok2u")
 
-[node name="GreenPaper" type="RigidBody2D" parent="." unique_id=568936548 node_paths=PackedStringArray("sprite_node") groups=["pickable"]]
+[node name="Green Paper" type="RigidBody2D" parent="." unique_id=568936548 node_paths=PackedStringArray("sprite_node") groups=["pickable"]]
 position = Vector2(656, 456)
 input_pickable = true
 script = ExtResource("12_5okuw")
@@ -137,10 +157,10 @@ sprite_node = NodePath("Sprite2D")
 metadata/_custom_type_script = "uid://dgobip1ygmbm4"
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="GreenPaper" unique_id=1321592743]
+[node name="Sprite2D" type="Sprite2D" parent="Green Paper" unique_id=1321592743]
 texture = ExtResource("13_iyngw")
 
-[node name="BluePaper" type="RigidBody2D" parent="." unique_id=161397137 node_paths=PackedStringArray("sprite_node") groups=["pickable"]]
+[node name="Blue Paper" type="RigidBody2D" parent="." unique_id=161397137 node_paths=PackedStringArray("sprite_node") groups=["pickable"]]
 position = Vector2(936, 696)
 input_pickable = true
 script = ExtResource("12_5okuw")
@@ -148,10 +168,10 @@ sprite_node = NodePath("Sprite2D")
 metadata/_custom_type_script = "uid://dgobip1ygmbm4"
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="BluePaper" unique_id=33219774]
+[node name="Sprite2D" type="Sprite2D" parent="Blue Paper" unique_id=33219774]
 texture = ExtResource("14_f5gdt")
 
-[node name="RedPaper" type="RigidBody2D" parent="." unique_id=1612794221 node_paths=PackedStringArray("sprite_node") groups=["pickable"]]
+[node name="Red Paper" type="RigidBody2D" parent="." unique_id=1612794221 node_paths=PackedStringArray("sprite_node") groups=["pickable"]]
 position = Vector2(1088, 352)
 input_pickable = true
 script = ExtResource("12_5okuw")
@@ -159,7 +179,7 @@ sprite_node = NodePath("Sprite2D")
 metadata/_custom_type_script = "uid://dgobip1ygmbm4"
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="RedPaper" unique_id=845560958]
+[node name="Sprite2D" type="Sprite2D" parent="Red Paper" unique_id=845560958]
 texture = ExtResource("15_8vr2k")
 
 [node name="Border" type="StaticBody2D" parent="." unique_id=665394797]
@@ -182,3 +202,6 @@ shape = SubResource("RectangleShape2D_gwwri")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Border" unique_id=940926618]
 position = Vector2(1024, -512)
 shape = SubResource("RectangleShape2D_gwwri")
+
+[connection signal="area_entered" from="ApproveZone" to="ApproveZone" method="_on_area_entered"]
+[connection signal="area_entered" from="DenyZone" to="DenyZone" method="_on_area_entered"]
