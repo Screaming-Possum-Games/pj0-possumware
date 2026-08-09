@@ -51,3 +51,6 @@ func _on_body_entered(body: Node2D) -> void:
             push_direction = velocity.normalized()
         
         body.apply_central_impulse(push_direction * push_force)
+        body.apply_impulse(push_direction * push_force)
+        body.linear_damp = 1.0
+        body.contact_monitor = true

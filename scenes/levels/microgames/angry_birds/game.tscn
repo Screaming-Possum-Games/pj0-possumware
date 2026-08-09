@@ -30,6 +30,7 @@ position = Vector2(250, 700)
 collision_layer = 8
 collision_mask = 4
 script = ExtResource("3_qg5uq")
+push_force = 200.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1650826755]
 texture = ExtResource("3_abor8")
@@ -54,6 +55,20 @@ texture = ExtResource("7_f2l2c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Block" unique_id=117993277]
 position = Vector2(594, 714)
+shape = SubResource("RectangleShape2D_qufia")
+
+[node name="Block2" type="RigidBody2D" parent="." unique_id=1936749070]
+collision_layer = 4
+physics_material_override = SubResource("PhysicsMaterial_6cf8o")
+gravity_scale = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Block2" unique_id=184027670]
+position = Vector2(594, 656)
+scale = Vector2(3.0833294, 3.2222261)
+texture = ExtResource("7_f2l2c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block2" unique_id=1642705973]
+position = Vector2(594, 656)
 shape = SubResource("RectangleShape2D_qufia")
 
 [connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]
