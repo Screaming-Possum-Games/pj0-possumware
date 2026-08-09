@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://5ukowhg8es03"
-path="res://.godot/imported/paper.png-a2758744b7d69b023ce17fed35e9cdaa.ctex"
+path="res://.godot/imported/green_paper.png-51b64f7b1bf6427cee01208bb01ebdea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/dragon_please/paper.png"
-dest_files=["res://.godot/imported/paper.png-a2758744b7d69b023ce17fed35e9cdaa.ctex"]
+source_file="res://assets/dragon_please/green_paper.png"
+dest_files=["res://.godot/imported/green_paper.png-51b64f7b1bf6427cee01208bb01ebdea.ctex"]
 
 [params]
 

@@ -15,6 +15,7 @@ func _ready():
     timer.timeout.connect(func(): print("Timer finished!"))
     for node in get_tree().get_nodes_in_group("pickable"):
         node.clicked.connect(_on_pickable_clicked)
+        stamp_paper(node.name, PaperStampState.UNSTAMPED)
 
 
 func _unhandled_input(event):

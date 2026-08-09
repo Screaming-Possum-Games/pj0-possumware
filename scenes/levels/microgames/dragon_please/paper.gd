@@ -1,21 +1,26 @@
-extends RigidBody2D
+class_name Paper extends RapierRigidBody2D
 
 signal clicked
 
 @export var sprite_node: Sprite2D
 var held = false
+var mouseover = false
+
+
+func _ready():
+    _create_collision_polygon(sprite_node)
+    mouse_entered.connect(func(): mouseover = true)
+    mouse_exited.connect(func(): mouseover = false)
 
 
 func _unhandled_input(event):
+    if not mouseover:
+        return
+
     if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
         if event.pressed:
             print("clicked")
             clicked.emit(self)
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-    _create_collision_polygon(sprite_node)
 
 
 func _physics_process(_delta):
@@ -24,8 +29,9 @@ func _physics_process(_delta):
 
 
 func pickup():
-    if held:
+    if held or not mouseover:
         return
+
     freeze = true
     held = true
 
