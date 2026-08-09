@@ -13,7 +13,7 @@ var lives: int = 5
 
 
 func _ready() -> void:
-    load_microgame("Test Game")
+    load_microgame("Dragon Please")
 
 
 func load_microgame(game_name: String, time_multi: float = 1.0):
