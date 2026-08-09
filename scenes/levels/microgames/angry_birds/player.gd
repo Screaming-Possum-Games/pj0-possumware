@@ -3,6 +3,7 @@ extends Area2D
 @export var max_launch_speed: float = 1200.0
 @export var slingshot_sensitivity: float = 5.0 
 @export var friction: float = 400.0
+@export var push_force: float = 100.0
 
 var velocity: Vector2 = Vector2.ZERO
 var drag_start_position: Vector2 = Vector2.ZERO
@@ -13,6 +14,7 @@ var is_aiming: bool = false
 func _ready() -> void:
     if draggable_node.has_signal("drag_started"):
         draggable_node.connect("drag_started", _on_draggable_drag_started)
+    body_entered.connect(_on_body_entered)
 
 func _process(delta: float) -> void:
     if is_aiming:
@@ -39,3 +41,13 @@ func _on_draggable_drag_ended(area: Area2D, drop_spot: SnappingSpot) -> void:
     
     var launch_force: Vector2 = pull_vector * slingshot_sensitivity
     velocity = launch_force.limit_length(max_launch_speed)
+
+
+func _on_body_entered(body: Node2D) -> void:
+    if body is RigidBody2D:
+        var push_direction = (body.global_position - global_position).normalized()
+        
+        if velocity.length() > 0:
+            push_direction = velocity.normalized()
+        
+        body.apply_central_impulse(push_direction * push_force)
