@@ -41,7 +41,7 @@ func _process(_delta):
     for paper in paper_state.keys():
         if not paper_state[paper] == target_paper_state[paper]:
             is_win = false
-    
+
     if is_win:
         level_won.emit()
 

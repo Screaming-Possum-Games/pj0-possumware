@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://dv3isxaxyp0ud"]
+
+[ext_resource type="Script" uid="uid://0qx7id3onu2g" path="res://scenes/levels/microgames/battle_merge/battle_merge.gd" id="1_pa8ba"]
+[ext_resource type="Script" uid="uid://bttsymi0kguqh" path="res://scenes/levels/microgames/battle_merge/game_board.gd" id="2_p2op2"]
+[ext_resource type="Texture2D" uid="uid://ciaum1gunb5b5" path="res://assets/battle_merge/PNG/square_dark.png" id="3_pnrpd"]
+[ext_resource type="Texture2D" uid="uid://uhuitgbweuo8" path="res://assets/battle_merge/PNG/square_light.png" id="4_5kj46"]
+
+[node name="BattleMerge" type="Node" unique_id=455222904]
+script = ExtResource("1_pa8ba")
+level_len = null
+
+[node name="GameBoard" type="Node2D" parent="." unique_id=678983353]
+script = ExtResource("2_p2op2")
+metadata/_edit_lock_ = true
+
+[node name="Marker2D" type="Marker2D" parent="GameBoard" unique_id=2071725514]
+z_index = 1000
+position = Vector2(702, 258)
+
+[node name="Marker2D2" type="Marker2D" parent="GameBoard" unique_id=1152565102]
+z_index = 1000
+position = Vector2(926, 256)
+
+[node name="Marker2D3" type="Marker2D" parent="GameBoard" unique_id=1426199595]
+z_index = 1000
+position = Vector2(1226, 258)
+
+[node name="Marker2D4" type="Marker2D" parent="GameBoard" unique_id=170565320]
+z_index = 1000
+position = Vector2(709, 500)
+
+[node name="Marker2D5" type="Marker2D" parent="GameBoard" unique_id=744039893]
+z_index = 1000
+position = Vector2(971, 514)
+
+[node name="Marker2D6" type="Marker2D" parent="GameBoard" unique_id=1424302762]
+z_index = 1000
+position = Vector2(1229, 502)
+
+[node name="Marker2D7" type="Marker2D" parent="GameBoard" unique_id=766295275]
+z_index = 1000
+position = Vector2(693, 774)
+
+[node name="Marker2D8" type="Marker2D" parent="GameBoard" unique_id=1263301154]
+z_index = 1000
+position = Vector2(973, 793)
+
+[node name="Marker2D9" type="Marker2D" parent="GameBoard" unique_id=2030104275]
+z_index = 1000
+position = Vector2(1227, 789)
+
+[node name="VisualGameBoard" type="GridContainer" parent="." unique_id=855065515]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -388.0
+offset_top = -388.0
+offset_right = 388.0
+offset_bottom = 388.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 3
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="VisualGameBoard" unique_id=722673404]
+layout_mode = 2
+texture = ExtResource("3_pnrpd")
+
+[node name="TextureRect2" type="TextureRect" parent="VisualGameBoard" unique_id=2124814692]
+layout_mode = 2
+texture = ExtResource("4_5kj46")
+
+[node name="TextureRect3" type="TextureRect" parent="VisualGameBoard" unique_id=719589396]
+layout_mode = 2
+texture = ExtResource("3_pnrpd")
+
+[node name="TextureRect4" type="TextureRect" parent="VisualGameBoard" unique_id=1993605083]
+layout_mode = 2
+texture = ExtResource("4_5kj46")
+
+[node name="TextureRect5" type="TextureRect" parent="VisualGameBoard" unique_id=817735227]
+layout_mode = 2
+texture = ExtResource("3_pnrpd")
+
+[node name="TextureRect6" type="TextureRect" parent="VisualGameBoard" unique_id=1336835672]
+layout_mode = 2
+texture = ExtResource("4_5kj46")
+
+[node name="TextureRect7" type="TextureRect" parent="VisualGameBoard" unique_id=899468097]
+layout_mode = 2
+texture = ExtResource("3_pnrpd")
+
+[node name="TextureRect8" type="TextureRect" parent="VisualGameBoard" unique_id=33151998]
+layout_mode = 2
+texture = ExtResource("4_5kj46")
+
+[node name="TextureRect9" type="TextureRect" parent="VisualGameBoard" unique_id=580389289]
+layout_mode = 2
+texture = ExtResource("3_pnrpd")
