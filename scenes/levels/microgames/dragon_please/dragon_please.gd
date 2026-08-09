@@ -27,7 +27,7 @@ func _ready():
         node.clicked.connect(_on_pickable_clicked)
         stamp_paper(node.name, PaperStampState.UNSTAMPED)
         set_target_state(node.name)
-        
+
     %RulesText.text = rules_text.format([
         "APPROVE" if target_paper_state["Red Paper"] == PaperStampState.APPROVED else "DENY",
         "APPROVE" if target_paper_state["Blue Paper"] == PaperStampState.APPROVED else "DENY",
