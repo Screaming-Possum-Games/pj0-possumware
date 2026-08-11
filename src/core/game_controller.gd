@@ -13,7 +13,14 @@ var lives: int = 5
 
 
 func _ready() -> void:
-    load_microgame("Dragon Please")
+    %PauseMenu.hide()
+    load_microgame(pick_next())
+
+
+func _process(_delta):
+    %LivesRemaining.text = "Lives: %d" % lives
+    var game = %CurrentGame.get_child(0) as Microgame
+    %TimerText.text = "Time: %3.2f" % game.get_timer().time_left
 
 
 func pick_next():

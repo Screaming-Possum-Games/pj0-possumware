@@ -15,6 +15,10 @@ func _ready():
     timer.timeout.connect(_on_level_lost)
     add_child(timer)
     timer.start()
+    
+
+func get_timer():
+    return timer
 
 
 func _on_level_lost():
