@@ -1,0 +1,23 @@
+[gd_resource type="Theme" format=3 uid="uid://ca1wjfomikqg6"]
+
+[ext_resource type="FontFile" uid="uid://deo5gvmmcmee4" path="res://assets/resources/opsilon/Opsilon-Regular.ttf" id="1_usbbb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_usbbb"]
+bg_color = Color(0.3995, 0.459425, 0.47, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_leamy"]
+bg_color = Color(0.19607843, 0.42745098, 0.46666667, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[resource]
+default_font = ExtResource("1_usbbb")
+default_font_size = 86
+Button/styles/disabled = SubResource("StyleBoxFlat_usbbb")
+Button/styles/normal = SubResource("StyleBoxFlat_leamy")
