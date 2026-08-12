@@ -43,10 +43,12 @@ metadata/_custom_type_script = "uid://crmnw3ldr3xev"
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player" unique_id=286945956]
 polygon = PackedVector2Array(-21, 14, -12, 26, 22, 19, 23, -16, 16, -25, 10, -18, 2, -16, -6, -27, -21, -28, -23, -19, -15, -18, -12, -13, -21, -16)
 
-[node name="Block" type="RigidBody2D" parent="." unique_id=1459949210]
+[node name="Block" type="RigidBody2D" parent="." unique_id=1459949210 groups=["blocks"]]
 collision_layer = 4
+collision_mask = 5
 physics_material_override = SubResource("PhysicsMaterial_6cf8o")
 gravity_scale = 0.0
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Block" unique_id=829604312]
 position = Vector2(594.25, 714)
@@ -57,10 +59,12 @@ texture = ExtResource("7_f2l2c")
 position = Vector2(594, 714)
 shape = SubResource("RectangleShape2D_qufia")
 
-[node name="Block2" type="RigidBody2D" parent="." unique_id=1936749070]
+[node name="Block2" type="RigidBody2D" parent="." unique_id=1936749070 groups=["blocks"]]
 collision_layer = 4
+collision_mask = 5
 physics_material_override = SubResource("PhysicsMaterial_6cf8o")
 gravity_scale = 0.0
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Block2" unique_id=184027670]
 position = Vector2(594, 656)
@@ -70,6 +74,148 @@ texture = ExtResource("7_f2l2c")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Block2" unique_id=1642705973]
 position = Vector2(594, 656)
 shape = SubResource("RectangleShape2D_qufia")
+
+[node name="Block3" type="RigidBody2D" parent="." unique_id=223918463 groups=["blocks"]]
+position = Vector2(-5, 19)
+collision_layer = 4
+collision_mask = 5
+physics_material_override = SubResource("PhysicsMaterial_6cf8o")
+gravity_scale = 0.0
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Block3" unique_id=1819123893]
+position = Vector2(598, 578)
+scale = Vector2(3.0833294, 3.2222261)
+texture = ExtResource("7_f2l2c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block3" unique_id=1750209250]
+position = Vector2(598, 578)
+shape = SubResource("RectangleShape2D_qufia")
+
+[node name="Block4" type="RigidBody2D" parent="." unique_id=1468142232 groups=["blocks"]]
+position = Vector2(-5, -37)
+collision_layer = 4
+collision_mask = 5
+physics_material_override = SubResource("PhysicsMaterial_6cf8o")
+gravity_scale = 0.0
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Block4" unique_id=2122262034]
+position = Vector2(598, 578)
+scale = Vector2(3.0833294, 3.2222261)
+texture = ExtResource("7_f2l2c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block4" unique_id=1595168783]
+position = Vector2(598, 578)
+shape = SubResource("RectangleShape2D_qufia")
+
+[node name="Block5" type="RigidBody2D" parent="." unique_id=389542174 groups=["blocks"]]
+position = Vector2(45, -37)
+collision_layer = 4
+collision_mask = 5
+physics_material_override = SubResource("PhysicsMaterial_6cf8o")
+gravity_scale = 0.0
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Block5" unique_id=1617966401]
+position = Vector2(598, 578)
+scale = Vector2(3.0833294, 3.2222261)
+texture = ExtResource("7_f2l2c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block5" unique_id=886109011]
+position = Vector2(598, 578)
+shape = SubResource("RectangleShape2D_qufia")
+
+[node name="Block6" type="RigidBody2D" parent="." unique_id=1411652861 groups=["blocks"]]
+position = Vector2(96, -37)
+collision_layer = 4
+collision_mask = 5
+physics_material_override = SubResource("PhysicsMaterial_6cf8o")
+gravity_scale = 0.0
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Block6" unique_id=904157430]
+position = Vector2(598, 578)
+scale = Vector2(3.0833294, 3.2222261)
+texture = ExtResource("7_f2l2c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block6" unique_id=393896313]
+position = Vector2(598, 578)
+shape = SubResource("RectangleShape2D_qufia")
+
+[node name="Block7" type="RigidBody2D" parent="." unique_id=1668527763 groups=["blocks"]]
+position = Vector2(149, -37)
+collision_layer = 4
+collision_mask = 5
+physics_material_override = SubResource("PhysicsMaterial_6cf8o")
+gravity_scale = 0.0
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Block7" unique_id=66568672]
+position = Vector2(598, 578)
+scale = Vector2(3.0833294, 3.2222261)
+texture = ExtResource("7_f2l2c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block7" unique_id=1633245617]
+position = Vector2(598, 578)
+shape = SubResource("RectangleShape2D_qufia")
+
+[node name="Block8" type="RigidBody2D" parent="." unique_id=1321707541 groups=["blocks"]]
+position = Vector2(150, 19)
+collision_layer = 4
+collision_mask = 5
+physics_material_override = SubResource("PhysicsMaterial_6cf8o")
+gravity_scale = 0.0
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Block8" unique_id=755750217]
+position = Vector2(598, 578)
+scale = Vector2(3.0833294, 3.2222261)
+texture = ExtResource("7_f2l2c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block8" unique_id=1066975172]
+position = Vector2(598, 578)
+shape = SubResource("RectangleShape2D_qufia")
+
+[node name="Block9" type="RigidBody2D" parent="." unique_id=1464794585 groups=["blocks"]]
+position = Vector2(150, 76)
+collision_layer = 4
+collision_mask = 5
+physics_material_override = SubResource("PhysicsMaterial_6cf8o")
+gravity_scale = 0.0
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Block9" unique_id=1501879895]
+position = Vector2(598, 578)
+scale = Vector2(3.0833294, 3.2222261)
+texture = ExtResource("7_f2l2c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block9" unique_id=557559856]
+position = Vector2(598, 578)
+shape = SubResource("RectangleShape2D_qufia")
+
+[node name="Block10" type="RigidBody2D" parent="." unique_id=1014354378 groups=["blocks"]]
+position = Vector2(149, 133)
+collision_layer = 4
+collision_mask = 5
+physics_material_override = SubResource("PhysicsMaterial_6cf8o")
+gravity_scale = 0.0
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Block10" unique_id=1854566334]
+position = Vector2(598, 578)
+scale = Vector2(3.0833294, 3.2222261)
+texture = ExtResource("7_f2l2c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block10" unique_id=562002741]
+position = Vector2(598, 578)
+shape = SubResource("RectangleShape2D_qufia")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=679061202]
+position = Vector2(312, 763)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=3822891]
+polygon = PackedVector2Array(-308, -40, 352, -14, 853, -35, 1602, -30, 1735, 203, 1648, 485, 1198, 498, 368, 469, -83, 463, -373, 434, -527, 165, -482, 17)
 
 [connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]
 [connection signal="drag_ended" from="Player/Draggable" to="Player" method="_on_draggable_drag_ended"]

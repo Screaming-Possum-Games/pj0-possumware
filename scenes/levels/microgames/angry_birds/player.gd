@@ -45,12 +45,20 @@ func _on_draggable_drag_ended(area: Area2D, drop_spot: SnappingSpot) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
     if body is RigidBody2D:
+        if not body.is_in_group("blocks"):
+            body.add_to_group("blocks")
+        
         var push_direction = (body.global_position - global_position).normalized()
         
         if velocity.length() > 0:
             push_direction = velocity.normalized()
         
-        body.apply_central_impulse(push_direction * push_force)
-        body.apply_impulse(push_direction * push_force)
+        body.apply_impulse(push_direction * push_force * 0.35)
         body.linear_damp = 1.0
         body.contact_monitor = true
+        body.gravity_scale = 1.0
+        
+        for b in get_tree().get_nodes_in_group("blocks"):
+            if b is RigidBody2D:
+                b.gravity_scale = 1.0
+                b.sleeping = false # helps make sure they start moving immediately
