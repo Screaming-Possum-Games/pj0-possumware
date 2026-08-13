@@ -22,7 +22,7 @@ func _ready() -> void:
     )
     
     tween.finished.connect(func ():
-        get_tree().root.add_child(initial_scene.instantiate())
+        get_tree().change_scene_to_packed(initial_scene)
         queue_free()
     )
 
@@ -32,5 +32,5 @@ func _unhandled_input(event: InputEvent) -> void:
             KEY_ESCAPE, KEY_SPACE
         ]:
             tween.pause()
-            get_tree().root.add_child(initial_scene.instantiate())
+            get_tree().change_scene_to_packed(initial_scene)
             queue_free()

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cu0thun4d1dc2" path="res://src/core/game_controller.gd" id="1_eqihu"]
 [ext_resource type="PackedScene" uid="uid://dt6b53byjnhu8" path="res://scenes/levels/game_over.tscn" id="2_61jgc"]
 [ext_resource type="PackedScene" uid="uid://cw1thxedqeffr" path="res://scenes/levels/microgames/dragon_please/dragon_please.tscn" id="3_61jgc"]
+[ext_resource type="Theme" uid="uid://ca1wjfomikqg6" path="res://assets/resources/possumware.tres" id="4_riktp"]
 
 [node name="Level0" type="Node2D" unique_id=1425157649]
 script = ExtResource("1_eqihu")
@@ -11,8 +12,48 @@ microgames = Dictionary[String, PackedScene]({
 "Dragon Please": ExtResource("3_61jgc")
 })
 
-[node name="PauseMenu" type="Node" parent="." unique_id=1882285251]
+[node name="PauseMenu" type="Control" parent="." unique_id=1363262551]
 unique_name_in_owner = true
+z_index = 1000
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GUI" type="HBoxContainer" parent="." unique_id=854047647]
+z_index = 900
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 975.0
+offset_right = 1910.0
+offset_bottom = 1075.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+metadata/_edit_group_ = true
+
+[node name="LivesRemaining" type="RichTextLabel" parent="GUI" unique_id=332463742]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("4_riktp")
+text = "Lives: 3"
+fit_content = true
+
+[node name="TimerText" type="RichTextLabel" parent="GUI" unique_id=468437746]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("4_riktp")
+text = "15"
+fit_content = true
+horizontal_alignment = 2
 
 [node name="CurrentGame" type="Node" parent="." unique_id=857654169]
 unique_name_in_owner = true

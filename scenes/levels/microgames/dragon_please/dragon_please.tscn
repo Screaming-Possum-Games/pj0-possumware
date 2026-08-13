@@ -94,8 +94,9 @@ script = ExtResource("6_0d6mk")
 sprite_node = NodePath("ApproveStampSprite")
 metadata/_edit_group_ = true
 
-[node name="Draggable" type="Node" parent="ApproveStamp" unique_id=1314454213]
+[node name="Draggable" type="Node" parent="ApproveStamp" unique_id=1314454213 node_paths=PackedStringArray("drag_layer_parent")]
 script = ExtResource("6_vvc0e")
+drag_layer_parent = NodePath("../..")
 type = SubResource("Resource_xpttn")
 metadata/_custom_type_script = "uid://crmnw3ldr3xev"
 
@@ -128,8 +129,9 @@ metadata/_edit_group_ = true
 [node name="DenyStampSprite" type="Sprite2D" parent="DenyStamp" unique_id=1003052683]
 texture = ExtResource("5_mtdnv")
 
-[node name="Draggable" type="Node" parent="DenyStamp" unique_id=646171148]
+[node name="Draggable" type="Node" parent="DenyStamp" unique_id=646171148 node_paths=PackedStringArray("drag_layer_parent")]
 script = ExtResource("6_vvc0e")
+drag_layer_parent = NodePath("../..")
 type = SubResource("Resource_xpttn")
 metadata/_custom_type_script = "uid://crmnw3ldr3xev"
 

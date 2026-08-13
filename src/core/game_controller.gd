@@ -13,7 +13,26 @@ var lives: int = 5
 
 
 func _ready() -> void:
-    load_microgame("Dragon Please")
+    %PauseMenu.hide()
+    load_microgame(pick_next())
+
+
+func _process(_delta):
+    %LivesRemaining.text = "Lives: %d" % lives
+    var game = %CurrentGame.get_child(0) as Microgame
+    %TimerText.text = "Time: %3.2f" % game.get_timer().time_left
+
+
+func pick_next():
+    recent_microgames.append(current_game.name)
+    var valid_games: Array[String] = microgames.keys().filter(func (x): return x not in recent_microgames)
+    
+    if len(valid_games) <= 1:
+        recent_microgames.pop_front()
+        recent_microgames = recent_microgames.filter(func (_x): return randf() <= 0.5)
+        valid_games = microgames.keys().filter(func (x): return x not in recent_microgames)
+    
+    return valid_games.pick_random()
 
 
 func load_microgame(game_name: String, time_multi: float = 1.0):
@@ -26,12 +45,14 @@ func load_microgame(game_name: String, time_multi: float = 1.0):
     game.level_won.connect(func():
         games_won += 1
         unload_microgames()
+        load_microgame(pick_next())
     )
 
     game.level_lost.connect(func():
         games_lost += 1
         lives -= 1
         unload_microgames()
+        load_microgame(pick_next())
     )
 
     game.request_ready()
