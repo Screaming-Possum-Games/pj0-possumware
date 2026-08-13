@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="screaming-possom-template"
+config/name="Possumjam 0"
 run/main_scene="uid://bqrxwndyryceo"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
