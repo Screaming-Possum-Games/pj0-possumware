@@ -1,0 +1,159 @@
+[gd_scene format=3 uid="uid://cijnfu71mduic"]
+
+[ext_resource type="Script" uid="uid://b6228nrgedgr7" path="res://scenes/menus/settings.gd" id="1_e7wif"]
+[ext_resource type="Theme" uid="uid://ca1wjfomikqg6" path="res://assets/resources/possumware.tres" id="2_g2810"]
+[ext_resource type="Texture2D" uid="uid://bn5rkthv486ni" path="res://assets/placeholder-1366x768.svg" id="3_swl1s"]
+
+[node name="SettingsMenu" type="Control" unique_id=1526036058]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e7wif")
+
+[node name="Possumware" type="RichTextLabel" parent="." unique_id=558290222]
+clip_contents = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.323
+anchor_bottom = 0.35200003
+offset_left = 49.000008
+offset_top = 191.99998
+offset_right = -67.95947
+offset_bottom = -41.160034
+grow_horizontal = 2
+rotation = -0.2617994
+theme = ExtResource("2_g2810")
+theme_override_font_sizes/normal_font_size = 128
+bbcode_enabled = true
+text = "[center]Settings[/center]"
+fit_content = true
+metadata/_edit_use_anchors_ = true
+
+[node name="ReturnButton" type="Button" parent="." unique_id=1699249805]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.7390625
+anchor_top = 0.74233025
+anchor_right = 0.9451332
+anchor_bottom = 0.9305556
+offset_top = 104.283325
+offset_right = 12.923157
+offset_bottom = 8.0
+rotation = -0.16158207
+theme = ExtResource("2_g2810")
+text = "Return"
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2003636190]
+z_index = -1000
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_swl1s")
+stretch_mode = 6
+metadata/_edit_lock_ = true
+
+[node name="MainVolume" type="Control" parent="." unique_id=1561155300]
+layout_mode = 1
+anchor_left = 0.3801042
+anchor_top = 0.33218527
+anchor_right = 0.6201042
+anchor_bottom = 0.3811852
+offset_left = -0.8000488
+offset_top = 0.2399292
+offset_right = 0.39990234
+offset_bottom = 0.32000732
+rotation = 0.14211214
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="MainVolLabel" type="Label" parent="MainVolume" unique_id=1197135214]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme = ExtResource("2_g2810")
+theme_override_font_sizes/font_size = 32
+text = "Main Volume"
+
+[node name="MainVolSlider" type="HSlider" parent="MainVolume" unique_id=160862487]
+layout_mode = 0
+offset_top = 37.0
+offset_right = 462.0
+offset_bottom = 53.0
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="BGMVol" type="Control" parent="." unique_id=1321777879]
+layout_mode = 1
+anchor_left = 0.29104167
+anchor_top = 0.47570378
+anchor_right = 0.5310417
+anchor_bottom = 0.5247036
+offset_left = -0.8000488
+offset_top = 0.2399292
+offset_right = 0.39990234
+offset_bottom = 0.32000732
+rotation = 0.050451644
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="BGMVolLabel" type="Label" parent="BGMVol" unique_id=28667392]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme = ExtResource("2_g2810")
+theme_override_font_sizes/font_size = 32
+text = "Music Volume"
+
+[node name="BGMVolSlider" type="HSlider" parent="BGMVol" unique_id=1887156155]
+layout_mode = 0
+offset_top = 37.0
+offset_right = 462.0
+offset_bottom = 53.0
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="SFXVolume" type="Control" parent="." unique_id=409632110]
+layout_mode = 1
+anchor_left = 0.43166667
+anchor_top = 0.6349631
+anchor_right = 0.6716667
+anchor_bottom = 0.683963
+offset_left = -0.8000488
+offset_top = 0.2399292
+offset_right = 0.39990234
+offset_bottom = 0.32000732
+rotation = -0.11385371
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="SFXVolLabel" type="Label" parent="SFXVolume" unique_id=1305799998]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme = ExtResource("2_g2810")
+theme_override_font_sizes/font_size = 32
+text = "SFX Volume"
+
+[node name="SFXVolSlider" type="HSlider" parent="SFXVolume" unique_id=1036620245]
+layout_mode = 0
+offset_top = 37.0
+offset_right = 462.0
+offset_bottom = 53.0
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[connection signal="pressed" from="ReturnButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="value_changed" from="MainVolume/MainVolSlider" to="." method="_on_main_volume_slider_value_changed"]
+[connection signal="value_changed" from="BGMVol/BGMVolSlider" to="." method="_on_bgm_volume_slider_value_changed"]
+[connection signal="value_changed" from="SFXVolume/SFXVolSlider" to="." method="_on_sfx_volume_slider_value_changed"]
