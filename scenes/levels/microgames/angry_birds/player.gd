@@ -45,9 +45,6 @@ func _on_draggable_drag_ended(area: Area2D, drop_spot: SnappingSpot) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
     if body is RigidBody2D:
-        if not body.is_in_group("blocks"):
-            body.add_to_group("blocks")
-        
         var push_direction = (body.global_position - global_position).normalized()
         
         if velocity.length() > 0:
