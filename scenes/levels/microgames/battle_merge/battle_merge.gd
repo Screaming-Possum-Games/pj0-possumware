@@ -50,12 +50,19 @@ func spawn_player_runes(marker: Marker2D) -> void:
     var player_rune: Rune = load("res://scenes/levels/microgames/battle_merge/rune.tscn").instantiate()
     player_rune.setup_rune(texture, marker.global_position, "PlayerRunes")
     # adding data
-    #player_runes.append(player_rune)
+    player_runes.append(player_rune)
     player_runes_container.add_child(player_rune)
-    var new_drop_zone = DropZone.new()
+    var new_drop_zone := DropZone.new()
     player_rune.add_child(new_drop_zone)
+
     new_drop_zone.drop_behavior = DropBehaviorReplace.new()
-    new_drop_zone.accepted_draggable_types = inventory_runes
+    # since there is no valid "snap" space due to the collision shape being the exact size of Rune
+    # disabling snap prevents Draggable from looking for an empty space and rejecting.
+    new_drop_zone.snap_style = DropZone.SNAP_STYLE.NO_SNAP
+    # creating the type that the drop zone will accept via ID
+    var t := DraggableType.new()
+    t.id = "InventoryRune"
+    new_drop_zone.accepted_draggable_types = [t]
 
 
 
@@ -74,8 +81,10 @@ func spawn_random_inventory(marker: Marker2D) -> void:
     # adding data
     inventory_runes.append(inventory_rune)
     inventory_runes_container.add_child(inventory_rune)
-    var new_draggable = Draggable.new()
+    var new_draggable := Draggable.new()
     inventory_rune.add_child(new_draggable)
+    # gave the draggable a targetable ID for drop zone
+    new_draggable.type.id = "InventoryRune"
 
 
 # rune data
