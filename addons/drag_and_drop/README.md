@@ -29,10 +29,10 @@ The name of the drag action that's set up in the project settings InputMap. For 
 Node the draggable's area temporarily re-parents to while in DRAGGING state.
 The area shouldn't be an ancestor of this node. If unset, will use the tree root.
 
-_Hint_: 
+_Hint_:
 If the scene root is the Area2D, either assign `drag_layer_parent` at runtime once the game tree is available or
-transform the scene so that the root has the area as a child, 
-allowing the `drag_layer_parent` can be attached to something other than the area. 
+transform the scene so that the root has the area as a child,
+allowing the `drag_layer_parent` can be attached to something other than the area.
 
 ---
 
@@ -157,30 +157,30 @@ See examples of drop action implementations in [drop_actions](./addons/drag_and_
 
 **Draggable Signals**
 
-- `drag_started(area: Area2D)`  
+- `drag_started(area: Area2D)`
   Emitted when the drag input is pressed while the Draggable is IDLE, switching the state to DRAGGING. Payload is the owner Area2D.
 
-- `drag_ended(area: Area2D, drop_spot: SnappingSpot)`  
+- `drag_ended(area: Area2D, drop_spot: SnappingSpot)`
   Emitted immediately after releasing the drag input if the Draggable is DRAGGING. This happens before evaluating the drop or moving the Draggable. Payload is the owner Area2D and the SnappingSpot where it will be dropped or null if the area won't drop on drag end.
 
-- `state_changed(area: Area2D, state: DRAGGABLE_STATE)`  
+- `state_changed(area: Area2D, state: DRAGGABLE_STATE)`
   Emitted on every state transition (IDLE, DRAGGING, DROPPING, RETURNING, AUTO_MOVING). Use to detect completion when it returns to IDLE after animations.
 
 **DropZone Signals**
 
-- `drop_evaluated(zone: DropZone, area: Area2D, plan: DropPlan)`  
+- `drop_evaluated(zone: DropZone, area: Area2D, plan: DropPlan)`
   Emitted after the drop behavior returned a DropPlan, before any actual changes. Signals the computed plan for the drop attempt.
 
-- `drop_rejected(zone: DropZone, area: Area2D, plan: DropPlan)`  
+- `drop_rejected(zone: DropZone, area: Area2D, plan: DropPlan)`
   Emitted when `plan.can_drop == false`. No mutations are applied.
 
-- `drop_accepted(zone: DropZone, area: Area2D, plan: DropPlan)`  
+- `drop_accepted(zone: DropZone, area: Area2D, plan: DropPlan)`
   Emitted when `plan.can_drop == true`, right before applying the plan.
 
-- `drop_applied(zone: DropZone, area: Area2D, plan: DropPlan)`  
+- `drop_applied(zone: DropZone, area: Area2D, plan: DropPlan)`
   Emitted after `_apply_plan()` finishes. At this point reparenting and occupant updates are done.
 
-- `occupant_changed(zone: DropZone, spot: SnappingSpot, old_occupant: Area2D, new_occupant: Area2D)`  
+- `occupant_changed(zone: DropZone, spot: SnappingSpot, old_occupant: Area2D, new_occupant: Area2D)`
   Emitted whenever a spot’s occupant reference changes:
   - Detach/clear (e.g., `DropUtils.clear_occupant_reference`, drag start)
   - Attach on drop (`_apply_plan`)

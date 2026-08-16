@@ -4,52 +4,48 @@
 [ext_resource type="Script" uid="uid://bttsymi0kguqh" path="res://scenes/levels/microgames/battle_merge/game_board.gd" id="2_p2op2"]
 [ext_resource type="Texture2D" uid="uid://ciaum1gunb5b5" path="res://assets/battle_merge/PNG/square_dark.png" id="3_pnrpd"]
 [ext_resource type="Texture2D" uid="uid://uhuitgbweuo8" path="res://assets/battle_merge/PNG/square_light.png" id="4_5kj46"]
+[ext_resource type="Texture2D" uid="uid://b5xc7qf7ugsfa" path="res://assets/battle_merge/PNG/inventory.png" id="5_5kj46"]
 
-[node name="BattleMerge" type="Node" unique_id=455222904]
+[node name="BattleMerge" type="Node" unique_id=455222904 node_paths=PackedStringArray("enemy_marker", "player_marker", "inventory_marker")]
 script = ExtResource("1_pa8ba")
-level_len = null
+enemy_marker = [NodePath("GameBoard/EnemySpawnMarker_01"), NodePath("GameBoard/EnemySpawnMarker_02"), NodePath("GameBoard/EnemySpawnMarker_03")]
+player_marker = [NodePath("GameBoard/PlayerSpawnMarker_01"), NodePath("GameBoard/PlayerSpawnMarker_02"), NodePath("GameBoard/PlayerSpawnMarker_03")]
+inventory_marker = [NodePath("Inventory/InventoryMarker_01"), NodePath("Inventory/InventoryMarker_02"), NodePath("Inventory/InventoryMarker_03")]
 
 [node name="GameBoard" type="Node2D" parent="." unique_id=678983353]
 script = ExtResource("2_p2op2")
 metadata/_edit_lock_ = true
 
-[node name="Marker2D" type="Marker2D" parent="GameBoard" unique_id=2071725514]
+[node name="EnemySpawnMarker_01" type="Marker2D" parent="GameBoard" unique_id=2071725514]
 z_index = 1000
-position = Vector2(702, 258)
+position = Vector2(704, 272)
 
-[node name="Marker2D2" type="Marker2D" parent="GameBoard" unique_id=1152565102]
+[node name="EnemySpawnMarker_02" type="Marker2D" parent="GameBoard" unique_id=672355811]
 z_index = 1000
-position = Vector2(926, 256)
+position = Vector2(960, 272)
 
-[node name="Marker2D3" type="Marker2D" parent="GameBoard" unique_id=1426199595]
+[node name="EnemySpawnMarker_03" type="Marker2D" parent="GameBoard" unique_id=1532690243]
 z_index = 1000
-position = Vector2(1226, 258)
+position = Vector2(1216, 272)
 
-[node name="Marker2D4" type="Marker2D" parent="GameBoard" unique_id=170565320]
+[node name="PlayerSpawnMarker_01" type="Marker2D" parent="GameBoard" unique_id=1241403876]
 z_index = 1000
-position = Vector2(709, 500)
+position = Vector2(704, 800)
 
-[node name="Marker2D5" type="Marker2D" parent="GameBoard" unique_id=744039893]
+[node name="PlayerSpawnMarker_02" type="Marker2D" parent="GameBoard" unique_id=1974657415]
 z_index = 1000
-position = Vector2(971, 514)
+position = Vector2(960, 800)
 
-[node name="Marker2D6" type="Marker2D" parent="GameBoard" unique_id=1424302762]
+[node name="PlayerSpawnMarker_03" type="Marker2D" parent="GameBoard" unique_id=1813751864]
 z_index = 1000
-position = Vector2(1229, 502)
+position = Vector2(1216, 800)
 
-[node name="Marker2D7" type="Marker2D" parent="GameBoard" unique_id=766295275]
-z_index = 1000
-position = Vector2(693, 774)
+[node name="EnemyRunes" type="Node2D" parent="GameBoard" unique_id=1951880211]
 
-[node name="Marker2D8" type="Marker2D" parent="GameBoard" unique_id=1263301154]
-z_index = 1000
-position = Vector2(973, 793)
-
-[node name="Marker2D9" type="Marker2D" parent="GameBoard" unique_id=2030104275]
-z_index = 1000
-position = Vector2(1227, 789)
+[node name="PlayerRunes" type="Node2D" parent="GameBoard" unique_id=251476391]
 
 [node name="VisualGameBoard" type="GridContainer" parent="." unique_id=855065515]
+z_index = -1000
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -102,3 +98,27 @@ texture = ExtResource("4_5kj46")
 [node name="TextureRect9" type="TextureRect" parent="VisualGameBoard" unique_id=580389289]
 layout_mode = 2
 texture = ExtResource("3_pnrpd")
+
+[node name="Inventory" type="Node" parent="." unique_id=1036946493]
+
+[node name="InventoryBG" type="TextureRect" parent="Inventory" unique_id=48141356]
+z_index = -1000
+custom_minimum_size = Vector2(256, 768)
+custom_maximum_size = Vector2(256, 768)
+offset_left = 256.0
+offset_top = 152.0
+offset_right = 512.0
+offset_bottom = 920.0
+texture = ExtResource("5_5kj46")
+metadata/_edit_lock_ = true
+
+[node name="InventoryMarker_01" type="Marker2D" parent="Inventory" unique_id=925700094]
+position = Vector2(384, 256)
+
+[node name="InventoryMarker_02" type="Marker2D" parent="Inventory" unique_id=662513916]
+position = Vector2(384, 512)
+
+[node name="InventoryMarker_03" type="Marker2D" parent="Inventory" unique_id=1652291477]
+position = Vector2(384, 768)
+
+[node name="InventoryRunes" type="Node2D" parent="Inventory" unique_id=117277117]

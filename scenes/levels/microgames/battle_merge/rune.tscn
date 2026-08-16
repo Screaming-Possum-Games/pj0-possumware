@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dj3rnq1ck00rk"]
+
+[ext_resource type="Texture2D" uid="uid://db75xkmp6qvmh" path="res://assets/battle_merge/PNG/Black/Slab (outline)/runeBlack_slabOutline_001.png" id="1_7ldhp"]
+[ext_resource type="Script" uid="uid://bq85fmrdxaco" path="res://scenes/levels/microgames/battle_merge/rune.gd" id="1_yj0m1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fpyuh"]
+size = Vector2(60, 94)
+
+[node name="Rune" type="Area2D" unique_id=934154608 groups=["EnemyRunes", "InventoryRunes", "PlayerRunes"]]
+script = ExtResource("1_yj0m1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=742949100]
+texture = ExtResource("1_7ldhp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=112453886]
+shape = SubResource("RectangleShape2D_fpyuh")
