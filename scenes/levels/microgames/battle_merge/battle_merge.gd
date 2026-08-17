@@ -28,6 +28,8 @@ func _ready() -> void:
     for marker in inventory_marker:
         spawn_random_inventory(marker)
 
+    super._ready()
+    timer.timeout.connect(func(): print("Timer finished!"))
 
 # on game start
 ## spawn 3 enemy runes
@@ -101,20 +103,38 @@ func remove_inventory_rune_from_array(rune_node: Rune) -> void:
     if rune_node in inventory_runes:
         inventory_runes.erase(rune_node)
 
+    if inventory_runes.size() == 0:
+        did_i_win()
 
+
+# this code was *stolen*/borrowed and i couldn't come up with it myself. sadge
 func did_i_win() -> void:
-    var score := 0
-    var enemy_score := 0
+    player_runes.sort_custom(func(a, b): return a.global_position.x < b.global_position.x)
+    enemy_runes.sort_custom(func(a, b): return a.global_position.x < b.global_position.x)
 
-    for rune in player_runes:
-        if is_instance_valid(rune):
-            score += rune.attack_points
+    var player_wins := 0
+    var enemy_wins := 0
 
-    for rune in enemy_runes:
-        if is_instance_valid(rune):
-            enemy_score += rune.attack_points
+    for i in range(3):
+        var player_rune = player_runes[i]
+        var enemy_rune = enemy_runes[i]
 
-    if score >= enemy_score:
-        print("Win!")
+        var player_attack = player_rune.attack_points if is_instance_valid(player_rune) else 0
+        var enemy_attack = enemy_rune.attack_points if is_instance_valid(enemy_rune) else 0
+
+        if player_attack > enemy_attack:
+            player_wins += 1
+            if is_instance_valid(enemy_rune):
+                enemy_rune.queue_free()
+        elif enemy_attack > player_attack:
+            enemy_wins += 1
+            if is_instance_valid(player_rune):
+                player_rune.queue_free()
+        else:
+            if is_instance_valid(player_rune): player_rune.queue_free()
+            if is_instance_valid(enemy_rune): enemy_rune.queue_free()
+
+    if player_wins > enemy_wins:
+        print("WIN")
     else:
-        print("Lose...")
+        print("LOSE")
