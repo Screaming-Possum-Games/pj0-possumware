@@ -6,7 +6,15 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fpyuh"]
 size = Vector2(60, 94)
 
-[node name="Rune" type="Area2D" unique_id=934154608 groups=["EnemyRunes", "InventoryRunes", "PlayerRunes"]]
+[sub_resource type="LabelSettings" id="LabelSettings_fpyuh"]
+font_size = 32
+font_color = Color(0.018167837, 0.13277778, 0.14957139, 1)
+outline_size = 3
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.78431374)
+shadow_offset = Vector2(0.75, 0.75)
+
+[node name="Rune" type="Area2D" unique_id=934154608]
 script = ExtResource("1_yj0m1")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=742949100]
@@ -14,3 +22,13 @@ texture = ExtResource("1_7ldhp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=112453886]
 shape = SubResource("RectangleShape2D_fpyuh")
+
+[node name="Label" type="Label" parent="." unique_id=333392525]
+offset_left = -43.0
+offset_top = 20.0
+offset_right = -3.0
+offset_bottom = 65.0
+text = "5"
+label_settings = SubResource("LabelSettings_fpyuh")
+horizontal_alignment = 1
+vertical_alignment = 1
